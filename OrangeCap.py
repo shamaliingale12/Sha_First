@@ -7,7 +7,7 @@ ans=('player3',100)
 '''
 
 def OrangeCap(a):
-    matches=list(sorted(a.keys()))
+    matches=a.keys()
     players=[]
     for n in matches:
         players.append(list(a[n].keys()))
@@ -18,10 +18,10 @@ def OrangeCap(a):
         for match in matches:
             if n in a[match].keys():
                 total[n]=total[n]+a[match][n]
-    b=max(total.values())
-    for n in total.keys():
-        if total[n]==b:
-            c=(n,b)
+    highestScore=max(total.values())
+    for playerName in total.keys():
+        if total[playerName]==highestScore:
+            c=(playerName,highestScore)
     return c
 a={'match1':{'player1':57, 'player2':38}, 'match2':{'player3':9, 'player1':42}, 'match3':{'player2':41, 'player4':63, 'player3':91}}
 print(OrangeCap(a))
